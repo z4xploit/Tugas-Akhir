@@ -136,25 +136,25 @@ def process_machine_learning(df):
     X_scaled = scaler.fit_transform(X)
     df_scaled = pd.DataFrame(X_scaled, columns=fitur, index=df.index)
     
-    # 🔥 DATA EVALUASI MANUAL RANDOM FOREST SESUAI HASIL TERAKHIRMU
+    # 🔥 DATA EVALUASI MANUAL RANDOM FOREST (DIUPDATE)
     rf_eval_manual = {
-        'accuracy': 0.659,
-        'precision': 0.657,
-        'recall': 0.659,
-        'f1': 0.656,
+        'accuracy': 0.646,
+        'precision': 0.645,
+        'recall': 0.646,
+        'f1': 0.644,
         'report': """              precision    recall  f1-score   support
 
-           0       0.67      0.76      0.71       203
-           1       0.56      0.45      0.50       224
-           2       0.89      0.89      0.89       178
-           3       0.77      0.81      0.79       215
-           4       0.48      0.52      0.50       183
-           5       0.60      0.60      0.60       211
-           6       0.65      0.60      0.63       186
+           0       0.69      0.73      0.71       203
+           1       0.54      0.47      0.50       224
+           2       0.87      0.88      0.87       178
+           3       0.76      0.80      0.78       215
+           4       0.44      0.50      0.47       183
+           5       0.60      0.58      0.59       211
+           6       0.61      0.59      0.60       186
 
-    accuracy                           0.66      1400
-   macro avg       0.66      0.66      0.66      1400
-weighted avg       0.66      0.66      0.66      1400"""
+    accuracy                           0.65      1400
+   macro avg       0.65      0.65      0.65      1400
+weighted avg       0.64      0.65      0.64      1400"""
     }
     
     return rf, le, df, df_scaled, rf_eval_manual, fitur
@@ -205,10 +205,10 @@ def rekomendasi_lagu_web(judul_lagu, top_n=10):
 
     return df.loc[idx], pd.DataFrame(hasil)
 
-# 🔥 DATA EVALUASI MANUAL CBF SESUAI HASIL TERAKHIRMU
+# 🔥 DATA EVALUASI MANUAL CBF (DIUPDATE)
 def get_cbf_eval_metrics():
-    # P@10, R@10, P@30, R@30, P@50, R@50
-    return 0.9915, 0.1015, 0.9867, 0.3030, 0.9833, 0.5033
+    # Mengembalikan nilai P@10, R@10, P@30, R@30, P@50, R@50
+    return 0.9915, 0.1015, 0.9866, 0.3030, 0.9832, 0.5033
 
 p10, r10, p30, r30, p50, r50 = get_cbf_eval_metrics()
 
